@@ -20,11 +20,19 @@ server:
   port: 8080
 
 
+
+
+method: minio
 upload:
   location:
     os: G:/项目/社团官网/源代码/backend/target/classes/static/images
     os1: G:/项目/社团官网/源代码/backend/target/classes/static
-
+minio:
+  accessKey: minio
+  secretKey: minio123
+  bucket: club
+  endpoint: http://192.168.200.130:9000
+  readPath: http://192.168.200.130:9000
 
 
 
