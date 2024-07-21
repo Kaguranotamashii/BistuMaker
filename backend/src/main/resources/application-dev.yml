@@ -3,16 +3,14 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/club?erverTimezone=CST
     username: root
-    password: root
+    password: 123456
   data:
     resources:
       static-locations: classpath:static/
   servlet:
     multipart:
-      max-file-size: 100MB
-      max-request-size: 100MB
-      enabled: true
-
+      max-file-size: 5MB
+      max-request-size: 5MB
 
 mybatis:
   configuration:
@@ -22,11 +20,19 @@ server:
   port: 8080
 
 
+
+
+method: minio
 upload:
   location:
-    os: D:/BistuMaker/backend/target/classes/static/images
-    os1: D:/BistuMaker/backend/target/classes/static
-
+    os: G:/项目/社团官网/源代码/backend/target/classes/static/images
+    os1: G:/项目/社团官网/源代码/backend/target/classes/static
+minio:
+  accessKey: minio
+  secretKey: minio123
+  bucket: club
+  endpoint: http://192.168.200.130:9000
+  readPath: http://192.168.200.130:9000
 
 
 
