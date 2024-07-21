@@ -27,8 +27,8 @@ export default defineConfig({
   server:{
     proxy:{
       '/api':{
-        target:'http://localhost:8080',
-        // target:'http://bistumaker.cn/api',
+        // target:'http://localhost:8080',
+        target:'http://bistumaker.cn/api',
         // target: 'http://43.128.1.212:8080',
         changeOrigin:true,
         rewrite:(path)=>path.replace(/^\/api/,'')///api替换为''
