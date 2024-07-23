@@ -5,7 +5,9 @@ import com.bistu.ckkj.aop.MyLog;
 import com.bistu.ckkj.config.ArticleRepository;
 import com.bistu.ckkj.pojo.Article;
 import com.bistu.ckkj.pojo.Result;
+import com.bistu.ckkj.strategy.SearchContext;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Retryable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,15 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/search")
 @RequiredArgsConstructor
 public class SearchController {
-
-    private final ArticleRepository articleRepository;
-
-
+    @Autowired
+    private SearchContext searchContext;
 
     @PostMapping("/search")
     public Result addArticle(String keyword){
-        articleRepository.findByTitleOrContent(keyword,keyword);
-        return new Result(200,"success",articleRepository.findByTitleOrContent(keyword,keyword));
-
+        return Result.success(searchContext.executeSearch(keyword));
     }
 }
