@@ -4,6 +4,7 @@ import com.bistu.ckkj.config.ArticleRepository;
 import com.bistu.ckkj.mapper.ArticleMapper;
 import com.bistu.ckkj.pojo.Article;
 import com.bistu.ckkj.service.ArticleService;
+import com.bistu.ckkj.service.AsyncService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,8 @@ public class ArticleServiceImpl implements ArticleService {
     private final ArticleMapper articleMapper;
 
     private final ArticleRepository articleRepository;
+
+    private final AsyncService asyncService;
 
     @Override
     public void addArticle(Article article) {
@@ -46,8 +49,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Article selectArticleById(Integer id) {
-
-
+        asyncService.addVisitsAsync(id);
         return articleMapper.selectById(id);
     }
 

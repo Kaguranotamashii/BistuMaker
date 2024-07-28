@@ -1,6 +1,5 @@
 package com.bistu.ckkj.config;
 
-import com.bistu.ckkj.config.MinIOConfigProperties;
 import com.bistu.ckkj.controller.uploadController;
 
 import io.minio.MinioClient;
