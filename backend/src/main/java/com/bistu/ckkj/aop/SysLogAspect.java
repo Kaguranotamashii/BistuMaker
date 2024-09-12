@@ -84,7 +84,7 @@ public class SysLogAspect {
 
                 //获取操作
         MyLog myLog = method.getAnnotation(MyLog.class);
-        String value = null;
+        String value;
         if (myLog != null) {
             value = myLog.value();
             log.setMessage(value);

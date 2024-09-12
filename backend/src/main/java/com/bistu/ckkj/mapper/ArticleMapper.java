@@ -53,4 +53,8 @@ public interface ArticleMapper {
 
     @Update("update articles set visits=visits+1 where id =#{id}")
     void addVisits(Integer id);
+
+    //根据单词查询文章关键词
+    @Select("select * from articles where title like '%${keyword}%' or content like '%${keyword}%'")
+    List<Article> selectByTitle(String keyword);
 }

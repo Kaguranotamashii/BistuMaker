@@ -27,4 +27,8 @@ upload:
     os1: /www/wwwroot/springboot
 
 
+app:
+  search:
+    strategy: mysql
+
 
